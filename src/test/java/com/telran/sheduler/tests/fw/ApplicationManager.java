@@ -11,12 +11,22 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
 
     UserHelper user;
-
+    EventHelper event;
+    WizardHelper wizard;
     AppiumDriver driver;
     DesiredCapabilities capabilities;
 
+
     public UserHelper user() {
         return user;
+    }
+
+    public EventHelper event() {
+        return event;
+    }
+
+    public WizardHelper wizard() {
+        return wizard;
     }
 
     public void init() throws MalformedURLException {
@@ -33,6 +43,8 @@ public class ApplicationManager {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         user = new UserHelper(driver);
+        event = new EventHelper(driver);
+        wizard= new WizardHelper(driver);
     }
 
     public void stop() {

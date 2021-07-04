@@ -11,17 +11,29 @@ public class UserHelper extends HelperBase {
         super(driver);
     }
 
-    public void login(User user){
-        waitForElement(By.id("log_email_input"),5);
+    public void login(User user) {
+        waitForElement(By.id("log_email_input"), 5);
         type(By.id("log_email_input"), user.getEmail());
-        waitForElement(By.id("log_password_input"),5);
         type(By.id("log_password_input"), user.getPassword());
-        driver.hideKeyboard();
-        tap(By.id("login_btn"));
+        hideKeyboard();
+        clickOnLoginButton();
 
     }
 
-    public boolean isSetDataFormPresent(){
-        return isElementPresent(By.id("wizard_settings_title"));
+    public void fillLoginForm(User user){
+        type(By.id("log_email_input"), user.getEmail());
+       // waitForElementAndType(By.id("log_email_input"), 5,user.getEmail());
+        type(By.id("log_password_input"), user.getPassword());
     }
+
+
+
+    public void clickOnLoginButton() {
+        tap(By.id("login_btn"),3);
+    }
+
+    public void defaultLogin() {
+        login(new User().withEmail("example3@gmail.com").withPassword("Example3_2021"));
+    }
+
 }
