@@ -126,7 +126,7 @@ public class HelperBase {
         }
 
         if (getSelectedDate(date).size() > 0) {
-            swipeToLeftToExactLocation(0);
+            swipeToLeftToExactLocation(15);
         }
 
     }

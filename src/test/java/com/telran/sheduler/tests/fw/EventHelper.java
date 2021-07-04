@@ -33,7 +33,7 @@ public class EventHelper extends HelperBase {
     }
 
     public void fillEventForm(String eventTitle, String eventType, int breaksCount, String wage) throws InterruptedException {
-        swipeTillSelectedDate(9);
+        swipeTillSelectedDate(10);
         type(By.id("info_title_input"), eventTitle);
         type(By.id("info_type_input"), eventType);
         hideKeyboard();
